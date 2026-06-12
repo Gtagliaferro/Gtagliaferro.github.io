@@ -1,0 +1,246 @@
+/* ──────────────────────────────────────────────────────────────────
+   Giovanni Tagliaferro — personal site
+   Austere, single-column, black-on-white. After darioamodei.com.
+   Self-contained: one stylesheet, one web font with system fallbacks.
+
+   To make links blue like Dario's, change --link to #1b4ca0 below.
+   ────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --ink:       #1a1a1a;   /* body text                 */
+  --ink-soft:  #6b6b6b;   /* dates, captions, footer   */
+  --link:      #1a1a1a;   /* link colour (try #1b4ca0) */
+  --rule:      #e7e7e2;   /* hairlines                 */
+  --bg:        #ffffff;
+  --measure:   640px;     /* reading column            */
+  --serif: 'Lora', Charter, 'Bitstream Charter', Cambria, Georgia,
+           'Times New Roman', Times, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── layout ───────────────────────────────────────────────────────── */
+
+.container {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 60px 24px 120px;
+}
+
+/* ── links ────────────────────────────────────────────────────────── */
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity 0.12s ease;
+}
+a:hover { opacity: 0.5; }
+
+/* ── top bar ──────────────────────────────────────────────────────── */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.sitename {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.sitename a { color: var(--ink); text-decoration: none; }
+
+.topbar--home { margin-bottom: 40px; }
+.topbar--home .sitename { font-size: 1.95rem; letter-spacing: -0.015em; }
+
+.topnav { font-size: 0.98rem; white-space: nowrap; }
+
+/* ── bio ──────────────────────────────────────────────────────────── */
+
+.bio { margin-bottom: 8px; }
+.bio p { margin: 0; }
+.bio p + p { margin-top: 1.1em; }
+
+.bio-extra { display: none; }
+.bio-extra.open { display: block; }
+
+.more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity 0.12s ease;
+}
+.more-btn:hover { opacity: 0.5; }
+
+/* ── homepage sections ────────────────────────────────────────────── */
+
+.section { margin-top: 44px; }
+
+.section h2 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.entry-list { list-style: none; margin: 0; padding: 0; }
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  padding: 4px 0;
+}
+.entry .date {
+  flex: none;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* external link lists (op-eds, interviews) carry a small source tag */
+.entry .src { color: var(--ink-soft); }
+
+/* ── archive ──────────────────────────────────────────────────────── */
+
+.archive-list { list-style: none; margin: 0; padding: 0; }
+.archive-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 5px 0;
+}
+.archive-list .date {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── reading pages (essay / post) ─────────────────────────────────── */
+
+.piece-header { margin-bottom: 44px; }
+
+.piece-title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.022em;
+  margin: 0 0 12px;
+}
+.piece-subtitle {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #555;
+  margin: 0 0 8px;
+}
+.piece-date { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+
+.prose { font-size: 1.06rem; line-height: 1.78; }
+.prose > p:first-of-type { margin-top: 0; }
+.prose p { margin: 0 0 1.4em; }
+.prose h2 {
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 2.5em 0 0.7em;
+  letter-spacing: -0.01em;
+}
+.prose h3 { font-size: 1.02rem; font-weight: 600; margin: 1.8em 0 0.5em; }
+.prose blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.4em;
+  border-left: 2px solid var(--rule);
+  font-style: italic;
+  color: #444;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.4em auto;
+  width: 72px;
+}
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; }
+
+/* footnotes */
+.footnotes {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--rule);
+  font-size: 0.86rem;
+  color: #555;
+  line-height: 1.6;
+}
+.footnotes ol { margin: 0; padding-left: 1.4em; }
+.footnotes li { margin-bottom: 0.6em; }
+sup a { text-decoration: none; font-size: 0.72rem; vertical-align: super; line-height: 0; }
+
+/* back link */
+.back-link {
+  display: inline-block;
+  margin-top: 56px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--ink); opacity: 1; }
+
+/* ── footer ───────────────────────────────────────────────────────── */
+
+.foot {
+  margin-top: 88px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+/* ── responsive ───────────────────────────────────────────────────── */
+
+@media (max-width: 680px) {
+  .container { padding: 44px 20px 88px; }
+  .topbar--home .sitename { font-size: 1.7rem; }
+  .piece-title { font-size: 1.62rem; }
+  .archive-list li { flex-direction: column; gap: 1px; }
+}
+
+/* ── print ────────────────────────────────────────────────────────── */
+
+@media print {
+  .topnav, .back-link, .foot { display: none; }
+  a { color: #000; text-decoration: none; }
+  body { font-size: 11pt; color: #000; }
+}

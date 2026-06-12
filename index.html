@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Giovanni Tagliaferro — lawyer and writer. Essays and short posts.">
+  <meta property="og:title" content="Giovanni Tagliaferro">
+  <meta property="og:description" content="Giovanni Tagliaferro — lawyer and writer. Essays and short posts.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <title>Giovanni Tagliaferro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="topbar topbar--home">
+      <h1 class="sitename"><a href="index.html">Giovanni Tagliaferro</a></h1>
+      <nav class="topnav"><a href="archive.html">Archive</a></nav>
+    </header>
+
+    <!-- BIO: first paragraph is finished; edit the expanded part to taste -->
+    <section class="bio">
+      <p>
+        Giovanni Tagliaferro is a lawyer and writer. He works in strategic
+        litigation &mdash; complex civil and commercial disputes &mdash; and writes
+        here about whatever holds his attention: the craft of argument, the books on
+        his desk, and the quieter mechanics of ordinary life.
+        <button class="more-btn" id="bio-btn" onclick="toggleBio()">More</button>
+      </p>
+      <div class="bio-extra" id="bio-extra">
+        <p>
+          He is based in [your city]. Before writing here he [a line or two about
+          your path &mdash; where you studied, the cases that shaped you, what you
+          reach for when you are not working]. These pages are a place to think in
+          public, slowly, and without a house style to answer to.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Essays</h2>
+      <ul class="entry-list">
+        <li class="entry">
+          <a href="essays/reasonable-doubt.html">Reasonable Doubt</a>
+          <span class="date">2026</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Short posts</h2>
+      <ul class="entry-list">
+        <li class="entry">
+          <a href="posts/on-keeping-a-notebook.html">On Keeping a Notebook</a>
+          <span class="date">2026</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      &copy; 2026 Giovanni Tagliaferro
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleBio() {
+      var extra = document.getElementById('bio-extra');
+      var btn   = document.getElementById('bio-btn');
+      var open  = extra.classList.toggle('open');
+      btn.textContent = open ? 'Less' : 'More';
+    }
+  </script>
+</body>
+</html>
